@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Adopt Dog - Dog Shelter</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h2>Avalible Dogs:</h2>
+<table>
+    <tr>
+        <th>Dog ID</th>
+        <th>Breed</th>
+        <th>Date of birth</th>
+        <th>Name</th>
+        <th>Was Addopted</th>
+    </tr>
+    <tbody>
+    <tr th:if="${dogs.empty}">
+        <td colspan="5">Dog shelter is empty</td>
+    </tr>
+    <tr th:each="d: ${dogs}">
+        <td th:text="${d.id}"/>
+        <td th:text="${d.dogBreed}"/>
+        <td th:text="${#temporals.format(d.getdateOfBirth(),'dd/MM/yyyy')}"></td>
+        <td th:text="${d.name}"/>
+        <td th:text="${#temporals.format(d.inShelterSinceWhen,'dd/MM/yyyy')}"></td>
+    </tr>
+    </tbody>
+</table>
+<h2>Choose your dog</h2>
+<form action="#" th:action="@{adoptDog}" method="post">
+    <label for="dog-id">Enter dog ID</label>
+    <input type="number" id="dog-id" name="id">
+<!--    <p th:if="${#fields.hasErrors('id')}" class="errors">Wrong ID. Choose dog from list above with appropriate ID</p>-->
+    <input type="submit">
+</form>
+
+</body>
+</html>

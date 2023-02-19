@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+    <title>View All Dogs - Dog Shelter</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <th>Dog ID</th>
+      <th>Breed</th>
+      <th>Date of birth</th>
+      <th>Name</th>
+      <th>Was Addopted</th>
+    </tr>
+    <tbody>
+      <tr th:if="${dogs.empty}">
+        <td colspan="5">Dog shelter is empty</td>
+      </tr>
+      <tr th:each="d: ${dogs}">
+        <td th:text="${d.id}"/>
+        <td th:text="${d.dogBreed}"/>
+        <td th:text="${#temporals.format(d.getdateOfBirth(),'dd/MM/yyyy')}"></td>
+        <td th:text="${d.name}"/>
+        <td th:text="${d.wasAddopted} ? 'YES' : 'NO'"/>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
