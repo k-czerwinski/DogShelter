@@ -1,0 +1,63 @@
+.errors{
+    color: red;
+}
+body{
+    marigin: 0;
+    padding: 0;
+    height: 100vh;
+    height: content-box;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(background_pattern.svg);
+}
+.app-area{
+    align-self: center;
+    background: #f09413;
+    border-radius: 50px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    width: 60%;
+    height: 80%;
+    max-height: 800px;
+}
+.main-menu-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.dog-table .row.header {
+    color: #fff;
+    background-color: #6c7ae0;
+    border: none;
+    marigin: 0px;
+}
+.dog-table .row.header th{
+    font-size: 18px;
+    color: white;
+    padding-top: 19px;
+    padding-bottom: 19px;
+    border: none;
+
+}
+.dog-table .row {
+    background:white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.dog-table .row.content-row {
+    color: darkgrey;
+}
+.dog-table .row.content-row th{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.app-area h1, h2{
+    color: white;
+}
