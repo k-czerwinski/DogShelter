@@ -8,9 +8,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface DogRepository extends JpaRepository<Dog,Long> {
     @Modifying
-    @Query("update Dog dog set dog.wasAdopted = :adoptionStatus where dog.id = :id")
-    void updateAdoptionStatus(@Param(value = "id") long id, @Param(value = "adoptionStatus") boolean adoptionStatus);
+    @Query("update Dog dog set dog.adopted = :adoptionStatus where dog.id = :id")
+    void adoptDogWithId(@Param(value = "id") Long id, @Param(value = "adoptionStatus") boolean adoptionStatus);
+
+    List<Dog> findAllByAdoptedOrderById(boolean adopted);
 }

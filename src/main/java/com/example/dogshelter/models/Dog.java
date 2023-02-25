@@ -4,11 +4,9 @@ import com.example.dogshelter.models.enums.DogBreed;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "dogs")
@@ -33,18 +31,18 @@ public class Dog {
     private LocalDate inShelterSinceWhen;
 
     @Column(columnDefinition = "boolean default false")
-    private boolean wasAdopted;
+    private boolean adopted;
 
     public Dog() {
     }
 
-    public Dog(Long id, DogBreed dogBreed, String name, LocalDate dateOfBirth, LocalDate inShelterSinceWhen, boolean wasAdopted) {
+    public Dog(Long id, DogBreed dogBreed, String name, LocalDate dateOfBirth, LocalDate inShelterSinceWhen, boolean adopted) {
         this.id = id;
         this.dogBreed = dogBreed;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
         this.inShelterSinceWhen = inShelterSinceWhen;
-        this.wasAdopted = wasAdopted;
+        this.adopted = adopted;
     }
 
     public Dog(DogBreed dogBreed, String name, LocalDate dateOfBirth) {
@@ -93,12 +91,12 @@ public class Dog {
         this.inShelterSinceWhen = inShelterSinceWhen;
     }
 
-    public boolean isWasAddopted() {
-        return wasAdopted;
+    public boolean isAdopted() {
+        return adopted;
     }
 
-    public void setWasAddopted(boolean wasAddopted) {
-        this.wasAdopted = wasAddopted;
+    public void setAdopted(boolean adopted) {
+        this.adopted = adopted;
     }
 
     @Override
@@ -109,7 +107,7 @@ public class Dog {
                 ", name='" + name + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", inShelterSinceWhen=" + inShelterSinceWhen +
-                ", wasAddopted=" + wasAdopted +
+                ", adopted=" + adopted +
                 '}';
     }
 }

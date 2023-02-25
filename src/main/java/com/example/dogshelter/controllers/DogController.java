@@ -1,7 +1,10 @@
 package com.example.dogshelter.controllers;
 
 import com.example.dogshelter.models.Dog;
+import jakarta.annotation.Nullable;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.executable.ValidateOnExecution;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,7 +48,7 @@ public class DogController {
 
     @GetMapping(path = "/dog/{id}")
     @ResponseBody
-    public Optional<Dog> getDog(@PathVariable("id") Long id) {
+    public Optional<Dog> getDog(@PathVariable("id") @NotNull Long id) {
         return dogService.getDogById(id);
     }
 
@@ -57,16 +60,17 @@ public class DogController {
 
     @GetMapping("/adoptDogForm")
     public String adoptDog(Model model){
-        model.addAttribute("dogs",dogService.viewAll());
+        model.addAttribute("dogs",dogService.findAllByAdoptionStatus(false));
         return "adopt-dog-form";
     }
 
 //    For now not working properly
-    @PutMapping("/adoptDog")
-    public String updateAdoptedStatus(@PathVariable("id") Long id, BindingResult result){
+    @PostMapping("/adoptDog")
+    public String updateAdoptedStatus(@RequestParam(value = "id", required = false, defaultValue = "0") Long id, Model model){
         if(dogService.updateAdoptionStatus(id,true))
             return "index";
-        result.addError(new ObjectError("id","Incorrect ID chosen"));
+        model.addAttribute("dogs",dogService.findAllByAdoptionStatus(false));
+        model.addAttribute("errorMessage","Incorrect ID chosen");
         return "adopt-dog-form";
     }
 

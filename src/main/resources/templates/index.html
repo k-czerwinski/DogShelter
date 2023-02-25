@@ -3,13 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Dog Shelter System</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
-    <form action="addDogForm">
-        <input type="submit" value="Add Dog">
-    </form>
-    <form action="adoptDogForm">
-        <input type="submit" value="Adopt Dog">
-    </form>
+<div class="app-area">
+    <div class="element">
+        <h1>Dog Shelter App</h1>
+    </div>
+    <div class="element">
+        <h2>Choose operation</h2>
+    </div>
+    <div class="element">
+        <div class="main-menu-buttons">
+            <form action="addDogForm">
+                <button>Add Dog</button>
+            </form>
+            <form action="adoptDogForm">
+                <button>Adopt Dog</button>
+            </form>
+            <form action="viewAll">
+                <button>View Dogs</button>
+            </form>
+        </div>
+
+    </div>
+</div>
 </body>
 </html>
