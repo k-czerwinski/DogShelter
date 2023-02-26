@@ -4,31 +4,40 @@
     <meta charset="UTF-8">
     <title>Add Dog - Dog Shelter</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="shortcut icon" type="image/ico" th:href="@{/images/favicon.ico}"/>
 </head>
 <body>
 <div class="app-area">
-    <h2>Add Dog</h2>
-    <h3>Enter dog details:</h3>
-    <form action="#" th:action="@{/addDog}" th:object="${dog}" method="post">
-        <div>
+    <div class="return-button">
+        <form action="/">
+            <input type="image" src="images/back-arrow.svg" alt="Submit" width="40" height="40">
+        </form>
+    </div>
+    <div class="header">
+        <h1>Add Dog</h1>
+        <h2>Enter dog details:</h2>
+    </div>
+    <form action="#" th:action="@{/addDog}" th:object="${dog}" method="post" class="add-dog-form">
+
+        <div class="form-element">
             <label for="name">Enter dog name: </label>
-            <input type=text th:field="*{name}" id="name"><br>
+            <input type=text th:field="*{name}" id="name">
             <p th:if="${#fields.hasErrors('name')}" class="errors">Name must be beetwen 2 and 20 characters long</p>
         </div>
-        <div>
+        <div class="form-element">
             <label for="date-of-birth">Estimated date of birth: </label>
-            <input type="date" th:field="*{dateOfBirth}" id="date-of-birth"><br>
+            <input type="date" th:field="*{dateOfBirth}" id="date-of-birth">
             <p th:if="${#fields.hasErrors('dateOfBirth')}" class="errors">Incorrect date of birth</p>
         </div>
-        <div>
+        <div class="form-element">
             <label for="dog-breed">Select dog breed: </label>
             <select th:field="*{dogBreed}" id="dog-breed">
                 <option th:each="breed : ${T(com.example.dogshelter.models.enums.DogBreed).values()}"
                         th:value="${breed}"
                         th:text="${breed.displayValue}"></option>
-            </select><br>
+            </select>
         </div>
-        <input type=submit value="Add Dog"><br>
+        <button>Add Dog</button>
     </form>
 </div>
 </body>
