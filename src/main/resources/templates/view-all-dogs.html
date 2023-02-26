@@ -4,11 +4,21 @@
     <meta charset="UTF-8">
     <title>View All Dogs - Dog Shelter</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="shortcut icon" type="image/ico" th:href="@{/images/favicon.ico}"/>
 </head>
 <body>
 <div class="app-area">
-    <table class="table table-bordered table-striped">
-        <tr>
+    <div class="return-button">
+        <form action="/">
+            <input type="image" src="images/back-arrow.svg" alt="Submit" width="40" height="40">
+        </form>
+    </div>
+    <div class="header">
+        <h1>Dog Shelter App</h1>
+        <h2>List of dogs:</h2>
+    </div>
+    <table class="dog-table">
+        <tr class="row header">
             <th>Dog ID</th>
             <th>Breed</th>
             <th>Date of birth</th>

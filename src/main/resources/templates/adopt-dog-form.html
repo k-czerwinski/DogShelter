@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <title>Adopt Dog - Dog Shelter</title>
     <meta charset="UTF-8">
-    <title>Add CSS and JS to Thymeleaf</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="shortcut icon" type="image/ico" th:href="@{/images/favicon.ico}"/>
 </head>
 <body>
 <div class="app-area">
-    <h2>Avalible Dogs:</h2>
+    <div class="return-button">
+        <form action="/">
+            <input type="image" src="images/back-arrow.svg" alt="Submit" width="40" height="40">
+        </form>
+    </div>
+    <div class="header">
+        <h1>Adopt Dog</h1>
+        <h2>Avalible Dogs:</h2>
+    </div>
     <table class="dog-table">
         <tr class="row header">
             <th>Dog ID</th>
@@ -33,10 +41,12 @@
     </table>
     <h2>Choose your dog</h2>
     <form action="#" th:action="@{/adoptDog}" method="post">
-        <label for="dog-id">Enter dog ID</label>
-        <input type="number" id="dog-id" th:name="id">
-        <p th:if="${errorMessage}" class="errors">Wrong ID. Choose dog from list above with appropriate ID</p>
-        <input type="submit">
+        <div class="form-element">
+            <label for="dog-id">Enter dog ID</label>
+            <input type="number" id="dog-id" th:name="id">
+            <p th:if="${errorMessage}" class="errors">Wrong ID. Choose dog from list above with appropriate ID</p>
+        </div>
+        <button>Submit</button>
     </form>
 </div>
 </body>
