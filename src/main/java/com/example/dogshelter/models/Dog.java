@@ -14,22 +14,18 @@ public class Dog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @Enumerated(EnumType.STRING)
     private DogBreed dogBreed;
     @NotEmpty(message = "Dog's name cannot be empty")
     @Size(min = 2, max = 20)
     private String name;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @PastOrPresent
     @NotNull(message = "Date of birth cannot be empty")
     private LocalDate dateOfBirth;
-
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
     private LocalDate inShelterSinceWhen;
-
     @Column(columnDefinition = "boolean default false")
     private boolean adopted;
 
@@ -48,7 +44,7 @@ public class Dog {
     public Dog(DogBreed dogBreed, String name, LocalDate dateOfBirth) {
         this.dogBreed = dogBreed;
         this.name = name;
-        this.dateOfBirth =dateOfBirth;
+        this.dateOfBirth = dateOfBirth;
     }
 
     public Long getId() {
@@ -75,11 +71,11 @@ public class Dog {
         this.name = name;
     }
 
-    public LocalDate getdateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setdateOfBirth(LocalDate dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

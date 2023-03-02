@@ -1,7 +1,8 @@
-.errors{
+.errors {
     color: red;
 }
-body{
+
+body {
     margin: 0;
     padding: 0;
     height: 100vh;
@@ -13,7 +14,8 @@ body{
     background-size: contain;
     font-family: Tahoma;
 }
-.app-area{
+
+.app-area {
     align-self: center;
     background: #f09413;
     border-radius: 50px;
@@ -27,16 +29,19 @@ body{
     max-height: 800px;
     min-width: 40%;
 }
-.main-menu-buttons{
+
+.menu-buttons {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 1em;
 }
-button:hover{
+
+button:hover {
     cursor: grab;
 }
-button{
+
+button {
     font-size: 18px;
     background: #3361cf;
     color: white;
@@ -45,79 +50,96 @@ button{
     border: none;
     width: auto;
 }
-.main-menu-buttons button{
+
+.menu-buttons button {
     padding: 30px;
     border-radius: 40px;
 }
-table{
+
+table {
     font-size: 18px;
     background-color: darkgray;
     border: none;
     border-radius: 20px;
     border-spacing: 1px;
 }
-th, td, tr{
+
+th, td, tr {
     padding-right: 15px;
     padding-left: 15px;
 }
-th{
+
+th {
     background-color: #3361cf;
 }
-tr{
+
+tr {
     background-color: white;
     color: darkgray;
 }
+
 th:first-of-type {
     border-top-left-radius: 15px;
 }
+
 th:last-of-type {
     border-top-right-radius: 15px;
 }
+
 tr:last-of-type td:first-of-type {
     border-bottom-left-radius: 15px;
 }
+
 tr:last-of-type td:last-of-type {
     border-bottom-right-radius: 15px;
 }
+
 .dog-table .row.header {
     color: #fff;
     background-color: #3361cf;
     border: none;
     margin: 0;
 }
-select{
+
+select {
     border: none;
     border-radius: 20px;
     font-size: 18px;
     padding: 15px;
     text-align: center;
 }
-form{
+
+form {
     display: flex;
     flex-direction: column;
     gap: 2em;
     align-content: space-around;
 }
-input{
+
+input {
     font-size: 18px;
     padding: 10px;
     border-radius: 15px;
     text-align: center;
     border: none;
 }
-input:focus{
+
+input:focus {
     border: darkgray;
 }
-.form-element{
+
+.form-element {
     display: flex;
     flex-direction: column;
     gap: 0.7em;
 }
-.app-area h1, h2, p, label{
+
+.app-area h1, h2, p, label {
     color: white;
 }
-.return-button{
+
+.return-button {
     position: absolute;
-    left:15px;
+    left: 15px;
     top: 15px;
 }

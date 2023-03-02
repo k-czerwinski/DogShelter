@@ -10,7 +10,7 @@
 <div class="app-area">
     <div class="return-button">
         <form action="/">
-            <input type="image" src="images/back-arrow.svg" alt="Submit" width="40" height="40">
+            <input type="image" src="images/back-arrow.svg" alt="return" width="40" height="40">
         </form>
     </div>
     <div class="header">
@@ -23,7 +23,7 @@
             <th>Breed</th>
             <th>Date of birth</th>
             <th>Name</th>
-            <th>Was Addopted</th>
+            <th>Was Adopted</th>
         </tr>
         <tbody>
         <tr th:if="${dogs.empty}">
@@ -32,7 +32,7 @@
         <tr th:each="d: ${dogs}">
             <td th:text="${d.id}"/>
             <td th:text="${d.dogBreed.displayValue}"/>
-            <td th:text="${#temporals.format(d.getdateOfBirth(),'dd/MM/yyyy')}"></td>
+            <td th:text="${#temporals.format(d.getDateOfBirth(),'dd/MM/yyyy')}"></td>
             <td th:text="${d.name}"/>
             <td th:text="${d.adopted} ? 'YES' : 'NO'"/>
         </tr>
