@@ -27,7 +27,7 @@
             <th>In shelter since</th>
         </tr>
         <tbody>
-        <tr th:if="${dogs.empty}" class="empty-table">
+        <tr th:if="${dogs.isEmpty()}" class="empty-table">
             <td colspan="5">Dog shelter is empty</td>
         </tr>
         <tr th:each="d: ${dogs}" class="row content-row">
@@ -39,15 +39,27 @@
         </tr>
         </tbody>
     </table>
-    <h2>Choose your dog</h2>
-    <form action="#" th:action="@{/adoptDog}" method="post">
-        <div class="form-element">
-            <label for="dog-id">Enter dog ID</label>
-            <input type="number" id="dog-id" th:name="id">
-            <p th:if="${errorMessage}" class="errors">Wrong ID. Choose dog from list above with appropriate ID</p>
+    <div class="adopt-dog-form-field">
+        <br>
+        <div th:if="${dogs.isEmpty()}">
+            <form action="/">
+                <button>Return to main menu</button>
+            </form>
         </div>
-        <button>Submit</button>
-    </form>
+        <div th:unless="${dogs.isEmpty()}">
+            <h2>Choose your dog</h2>
+            <form action="#" th:action="@{/adoptDog}" method="post">
+                <div class="form-element">
+                    <label for="dog-id">Enter dog ID</label>
+                    <input type="number" id="dog-id" th:name="id">
+                    <p th:if="${errorMessage}" class="errors">Wrong ID. Choose dog from list above with appropriate
+                        ID</p>
+                </div>
+                <button>Submit</button>
+            </form>
+        </div>
+    </div>
+
 </div>
 </body>
 </html>
