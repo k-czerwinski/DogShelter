@@ -6,15 +6,15 @@ public enum DogBreed {
     PUG("Pug"),
     CHIHUAHUA("Chihuahua"),
     ROTTWEILER("Rottweiler"),
-    UNKNOWN("Unknown");
+    MONGREL("Mongrel");
 
     private final String displayValue;
 
-    private DogBreed(String displayValue){
+    private DogBreed(String displayValue) {
         this.displayValue = displayValue;
     }
 
-    public String getDisplayValue(){
+    public String getDisplayValue() {
         return this.displayValue;
     }
 }
