@@ -54,8 +54,7 @@ public class DogController {
         model.addAttribute("dogs", dogRepository.findAllByAdoptedOrderById(false));
         return "adopt-dog-form";
     }
-
-    //    For now not working properly
+    
     @PostMapping("/adoptDog")
     public String adoptDog(@RequestParam(value = "id", required = false, defaultValue = "0") Long id, Model model) {
         if (dogService.updateAdoptionStatus(id, true)) {
