@@ -12,7 +12,7 @@ public class DogService {
         this.dogRepository = dogRepository;
     }
 
-    //Return true if adoption status has been set succesfully, otherwise return false
+    //Return true if adoption status has been set successfully, otherwise return false
     @Transactional
     public boolean updateAdoptionStatus(Long id, boolean adoptionStatus) {
         if (dogRepository.existsById(id)) {
